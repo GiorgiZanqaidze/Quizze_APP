@@ -7,8 +7,7 @@ const units = ["1", "2", "3", "4", "5", "6"]
 
 export default function Form({setAllUnits, allUnits, setPage}) {
   const [checkedState, setCheckedState] = useState(
-    JSON.parse(localStorage.getItem("checkedState")).length === units.length ? 
-    JSON.parse(localStorage.getItem("checkedState")) : 
+
     new Array(units.length).fill(false)
     );
   
@@ -39,7 +38,7 @@ export default function Form({setAllUnits, allUnits, setPage}) {
   return (
     <form className='form-container'>
       <h1 className='form-title'>აირჩიეთ სასურველი ქვეთავი</h1>
-        {units.map((item, index) => {
+        {units && units.map((item, index) => {
           return (
             <div key={index}>
               <label htmlFor={`custom-checkbox-${index}`} className='units-title'>{item} თავი</label>
